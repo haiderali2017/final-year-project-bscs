@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        {% load static %}
+        <title>Job Listing</title>
+
+        <link rel="stylesheet" href="{% static 'bootstrap.min.js' %}"/>
+        <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'bootstrap.min.js'%}"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static 'job_listing/css/linearicons.css' %}">
+        <link rel="stylesheet" href="{% static 'job_listing/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'job_listing/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'job_listing/css/magnific-popup.css' %}">
+        <link rel="stylesheet" href="{% static 'job_listing/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'job_listing/css/animate.min.css' %}">
+        <link rel="stylesheet" href="{% static 'job_listing/css/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'job_listing/css/main.css' %}">
+    </head>
+    <body>
+        <header id="header" id="home">
+        <div class="container">
+            <div class="row align-items-center justify-content-between d-flex">
+                <div id="logo">
+                    <a href="index.html"><img src="{% static 'img/logo.png' %}" alt="" title="" /></a>
+                </div>
+                <nav id="nav-menu-container" >
+                    <ul class="nav-menu">
+                        <li class="menu-active"><a href="http://127.0.0.1:8000/">Home</a></li>
+                        <li><a href="http://127.0.0.1:8000/about_us">About Us</a></li>
+                        <li><a href="category.html">Category</a></li>
+                        <li><a href="price.html">Price</a></li>
+                        <li><a href="blog-home.html">Blog</a></li>
+                        <li><a href="{% url 'users:contact_job_posting' %}">Contact</a></li>
+                        <li class="menu-has-children"><a href="">Pages</a>
+                            <ul>
+                                <li><a href="elements.html">elements</a></li>
+                                <li><a href="search.html">search</a></li>
+                                <li><a href="single.html">single</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="ticker-btn" href="{% url 'users:login_form' %}">Login</a></li>
+                    </ul>
+                </nav><!-- #nav-menu-container -->
+            </div>
+        </div>
+    </header>
+
+    </body>
+</html>

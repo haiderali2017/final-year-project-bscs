@@ -1,0 +1,315 @@
+<!--            {% if Job_Detail %}-->
+<!--                {% for Job_Detail in Job_Detail %}-->
+<!--                    {% for i in Application %}-->
+<!--                        {% if i.job.id == Job_Detail.id %}-->
+<!--            <hr>-->
+<!--                            <a href="#"><h4>{{ i.applicant.first_name }} {{ i.applicant.last_name }}</h4></a>-->
+<!--                            <h6> {{ i.applicant.email }} </h6>-->
+<!--                            <h6> {{ i.applicant.phone }} </h6>-->
+<!--                                {% for resum in parsed_resume %}-->
+<!--                                    {% if resum.application == i.resume.id %}-->
+<!--                                        <details>-->
+<!--                                            <summary> Parsed Data </summary>-->
+<!--                                            <p>Name: {{ resum.data.name }}</p>-->
+<!--                                            <p>Phone: {% for ph in resum.data.phone %}{{ ph }}{% endfor %}</p>-->
+<!--                                            <p>Email: {% for em in resum.data.email %}{{ em }}{% endfor %}</p>-->
+<!--                                            <p>Education: {% for deg in resum.data.degree %}{{ deg }}<span> , </span>{% endfor %}</p>-->
+<!--                                            <p>Skills: {% for sk in resum.data.skills %}{{ sk }}<span> , </span>{% endfor %}</p>-->
+<!--                                        </details>-->
+<!--                                    {% endif %}-->
+<!--                                {% endfor %}-->
+<!--                        {% endif %}-->
+<!--                    {% endfor %}-->
+<!--                {% endfor %}-->
+<!--            {% endif %}-->
+
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {#  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>#}
+    {#  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>#}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'DashBoard/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--external css-->
+    <link href="{% static 'DashBoard/lib/font-awesome/css/font-awesome.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static 'DashBoard/css/zabuto_calendar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'DashBoard/lib/gritter/css/jquery.gritter.css' %}" />
+    <!-- Custom styles for this template -->
+    <link href="{% static 'DashBoard/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'DashBoard/css/style-responsive.css' %}" rel="stylesheet">
+    <script src="{% static 'DashBoard/lib/chart-master/Chart.js' %}"></script>
+
+
+    <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+
+
+
+
+</head>
+<body>
+<header class="header black-bg">
+
+    <!--logo start-->
+    <a href="{% url 'users:dashboard_job_posting' %}" class="logo"><b> {{ user.username }} </b></a>
+    <!--logo end-->
+
+    <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+            <li><a class="logout" href="{% url 'users:index_job_posting'  %}">Logout</a></li>
+        </ul>
+    </div>
+</header><!-- #header -->
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Job category
+                </h1>
+                <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="category.html"> Job category</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- Start post Area -->
+<section class="post-area section-gap">
+    <div class="container">
+        <div class="row justify-content-center d-flex">
+            {% if Job_Detail %}
+                <div class="col-lg-10 post-list">
+                    {% for Job_Detail in Job_Detail %}
+                        <div class="single-post d-flex flex-row">
+                            <div class="thumb">
+                                {% if Job_Detail.posted_by.profile_picture %}
+                                    <img src="{{ Job_Detail.posted_by.profile_picture.url }}" height="100" width="130">
+                                {% endif %}
+                                <ul class="tags">
+                                    {% for skill in skills %}
+                                        {% if Job_Detail.id == skill.job.id %}
+                                            <li>
+                                                <a href="#">{{ skill.title }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                </ul>
+                            </div>
+                            <div class="details">
+                                <div class="title d-flex flex-row justify-content-between">
+                                    <div class="titles">
+                                        <h5>
+                                            {{ Job_Detail.Job_title }}
+                                        </h5>
+                                    </div>
+                                    <ul class="btns">
+                                        {# <li><a href="#"><span class="lnr lnr-heart"></span></a></li>#}
+                                        <li><a href="{% url 'users:edit_a_job' Job_Detail.id %}"><span> Edit </span></a></li>
+                                        <li><a href="{% url 'users:delete_a_job' Job_Detail.id %}">Delete</a></li>
+                                        {# <li><a href="#">Apply</a></li>#}
+                                    </ul>
+                                </div>
+                                <p>
+                                    {{ Job_Detail.Job_Description }}
+                                </p>
+                                <h5>Job Nature: {{ Job_Detail.job_nature }}</h5>
+                                <p class="address"><span class="lnr lnr-map"></span> {{ Job_Detail.complete_address }} </p>
+                                {% if request.user.is_company %}
+                                    <p>
+                                        <button class="btn btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample1_{{  Job_Detail.id}}" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Applications</button>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="collapse multi-collapse" id="multiCollapseExample1_{{  Job_Detail.id}}">
+                                                <div class="card card-body">
+                                                    <section style="overflow: auto">
+                                                        <div class="container" >
+                                                            <div class="row justify-content-center d-flex">
+
+                                                                <div class="col-lg-12 post-list">
+                                                                    {% for i in Application %}
+                                                                        {% if i.job.id == Job_Detail.id %}
+                                                                            <div class="single-post d-flex flex-row">
+                                                                                <div class="thumb" style="margin-left: 30px">
+                                                                                    <a href="{% url 'users:profile' i.applicant.id %}">
+                                                                                        <img src="{% static 'img/post.png' %}" alt="">
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="details" style="margin-left: 80px">
+                                                                                    <div class="title d-flex flex-row justify-content-between">
+                                                                                        <div class="titles">
+                                                                                            <a href="#"><h4>{{ i.applicant.first_name }} {{ i.applicant.last_name }}</h4></a>
+                                                                                            <h6> {{ i.applicant.email }} </h6>
+                                                                                            <h6> {{ i.applicant.phone }} </h6>
+                                                                                            {% for resum in parsed_resume %}
+                                                                                                {% if resum.application == i.resume.id %}
+                                                                                                    <details>
+                                                                                                        <summary> Parsed Data </summary>
+                                                                                                        <p>Name: {{ resum.data.name }}</p>
+                                                                                                        <p>Phone: {% for ph in resum.data.phone %}{{ ph }}{% endfor %}</p>
+                                                                                                        <p>Email: {% for em in resum.data.email %}{{ em }}{% endfor %}</p>
+                                                                                                        <p>Education: {% for deg in resum.data.degree %}{{ deg }}<span> , </span>{% endfor %}</p>
+                                                                                                        <p>Skills: {% for sk in resum.data.skills %}{{ sk }}<span> , </span>{% endfor %}</p>
+                                                                                                    </details>
+                                                                                                {% endif %}
+                                                                                            {% endfor %}
+                                                                                            <a href="{{ i.resume.file.url }}">File </a>
+                                                                                        </div>
+                                                                                        {% if i.status != 'AC' %}
+                                                                                            <ul class="btns" style="margin-left: 40px">
+                                                                                                <li><span class="lnr lnr-heart"><a href="{% url 'users:set_application_status' id=i.id status='AC'%}"> Accept </a></span></li>
+                                                                                                <li><span class="lnr lnr-heart" > <a href="{% url 'users:set_application_status' id=i.id status='RJ'%}">Reject </a></span> </li>
+                                                                                            </ul>
+                                                                                        {% endif %}
+                                                                                    </div>
+                                                                                    <p class="address"><span class="lnr lnr-map"></span> {{ i.job.City }} {{ i.job.Country }}</p>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+
+                <div class="col-lg-8 post-list">
+                    <h2>No Jobs Available.</h2>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+<!-- End post Area -->
+
+<!-- start footer Area -->
+<footer class="footer-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3  col-md-12">
+                <div class="single-footer-widget">
+                    <h6>Top Products</h6>
+                    <ul class="footer-nav">
+                        <li><a href="#">Managed Website</a></li>
+                        <li><a href="#">Manage Reputation</a></li>
+                        <li><a href="#">Power Tools</a></li>
+                        <li><a href="#">Marketing Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6  col-md-12">
+                <div class="single-footer-widget newsletter">
+                    <h6>Newsletter</h6>
+                    <p>You can trust us. we only send promo offers, not a single spam.</p>
+                    <div id="mc_embed_signup">
+                        <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+                            <div class="form-group row" style="width: 100%">
+                                <div class="col-lg-8 col-md-12">
+                                    <input name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+                                    <div style="position: absolute; left: -5000px;">
+                                        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12">
+                                    <button class="nw-btn primary-btn">Subscribe<span class="lnr lnr-arrow-right"></span></button>
+                                </div>
+                            </div>
+                            <div class="info"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3  col-md-12">
+                <div class="single-footer-widget mail-chimp">
+                    <h6 class="mb-20">Instragram Feed</h6>
+                    <ul class="instafeed d-flex flex-wrap">
+                        <li><img src="{% static 'img/i1.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i2.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i3.jpg' %}'" alt=""></li>
+                        <li><img src="{% static 'img/i4.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i5.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i6.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i7.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i8.jpg' %}" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row footer-bottom d-flex justify-content-between">
+            <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+            <div class="col-lg-4 col-sm-12 footer-social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-behance"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End footer Area -->
+{#<script src="js/vendor/jquery-2.2.4.min.js"></script>#}
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>#}
+{#<script src="js/vendor/bootstrap.min.js"></script>#}
+{#<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>#}
+{#<script src="js/easing.min.js"></script>#}
+{#<script src="js/hoverIntent.js"></script>#}
+{#<script src="js/superfish.min.js"></script>#}
+{#<script src="js/jquery.ajaxchimp.min.js"></script>#}
+{#<script src="js/jquery.magnific-popup.min.js"></script>#}
+{#<script src="js/owl.carousel.min.js"></script>#}
+{#<script src="js/jquery.sticky.js"></script>#}
+{#<script src="js/jquery.nice-select.min.js"></script>#}
+{#<script src="js/parallax.min.js"></script>#}
+{#<script src="js/mail-script.js"></script>#}
+{#<script src="js/main.js"></script>#}
+</body>
+</html>

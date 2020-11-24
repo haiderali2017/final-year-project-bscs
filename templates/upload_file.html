@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="page-header">
+    Photos
+    <small>/ {% block title %}{% endblock %}</small>
+  </h1>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Examples</h3>
+        </div>
+        <div class="list-group">
+          <a href="{% url 'users:basic_upload' %}" class="list-group-item{% if request.path == '/users/basic-upload/' %} active{% endif %}">
+            Basic Upload
+          </a>
+          <a href="{% url 'users:progress_bar_upload' %}" class="list-group-item{% if request.path == '/users/progress-bar-upload/' %} active{% endif %}">
+            Progress Bar Upload
+          </a>
+          <a href="{% url 'users:drag_and_drop_upload' %}" class="list-group-item{% if request.path == '/users/drag-and-drop-upload/' %} active{% endif %}">
+            Drag and Drop Upload
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      {% block photos_content %}
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}

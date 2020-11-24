@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+    <br><br>
+{% comment %}
+
+      <p><a href="{% url 'users:file_upload' %}">upload file</a></p>
+{% endcomment %}
+
+
+    <br>
+    <br>
+  <p><a href="{% url 'users:logout' %}">logout</a></p>
+
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'users:login' %}">login</a> |
+  <a href="{% url 'users:signup' %}">signup</a>
+{% endif %}
+{% endblock %}
